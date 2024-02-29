@@ -13,9 +13,11 @@
         android:theme="@style/Theme.birdhouse"
         tools:targetApi="31">
         <activity
+            android:name=".activity_accelerometer"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
-
         <activity
             android:name=".splash_screen"
             android:exported="true">
