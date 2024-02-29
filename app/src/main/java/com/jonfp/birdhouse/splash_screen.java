@@ -1,4 +1,4 @@
-package com.jonfp.myapplication;
+package com.jonfp.birdhouse;
 
 import androidx.appcompat.app.AppCompatActivity;
 
