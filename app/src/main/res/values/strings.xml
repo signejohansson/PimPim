@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Pimpim</string>
+    <string name="splash_title">Birdhouse</string>
+    <string name="splash_credit">by Pim-Pim</string>
 </resources>
