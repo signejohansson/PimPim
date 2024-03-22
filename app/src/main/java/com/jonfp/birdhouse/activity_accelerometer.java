@@ -14,7 +14,6 @@ import android.os.Vibrator;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
-import android.media.MediaPlayer;
 
 public class activity_accelerometer extends AppCompatActivity implements SensorEventListener {
 
@@ -22,16 +21,6 @@ public class activity_accelerometer extends AppCompatActivity implements SensorE
         private Sensor accelerometer;
         private float[] accelerometerReading = new float[3];
 
-        boolean saw_is_extended = false;
-        int saw_movement_changes = 0;
-        private static final int MOVEMENT_THRESHOLD = 7;
-        private static final int movement_changes_THRESHOLD = 5;
-
-
-        int hammer_movement_changes = 0;
-        boolean hammer_is_extended = false;
-
-        private MediaPlayer mediaPlayer;
 
         @Override
         protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +30,6 @@ public class activity_accelerometer extends AppCompatActivity implements SensorE
             if (sensorManager != null) {
                 accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
             }
-
-            mediaPlayer = MediaPlayer.create(this, R.raw.saw);
         }
         @Override
         protected void onResume() {
@@ -68,17 +55,11 @@ public class activity_accelerometer extends AppCompatActivity implements SensorE
                 float x = event.values[0];
                 float y = event.values[1];
                 float z = event.values[2];
-                if(z > 10 || z < -10){
-                    saw_movement_changes = 0;
-                    hammer_movement_changes = 0;
-                    if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                        mediaPlayer.stop();
-                    }
-                    return;
-                }
 
-                check_saw_motion(x,y,z);
-                check_hammer_motion(x,y,z);
+                double acceleration = Math.sqrt(x * x + y * y + z * z);
+                System.out.println(x);
+                System.out.println(y);
+                System.out.println(z);
             }
         }
 
@@ -87,56 +68,6 @@ public class activity_accelerometer extends AppCompatActivity implements SensorE
             // Not used, but required to implement SensorEventListener
         }
 
-        public void check_saw_motion(float x, float y, float z){
 
-            if(y > MOVEMENT_THRESHOLD){
-                saw_is_extended = true;
-                saw_movement_changes++;
-            } else{
-                saw_is_extended = false;
-            }
-            if(saw_movement_changes > movement_changes_THRESHOLD) {
-                System.out.println("YOU ARE SAWING");
-                if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
-                    mediaPlayer = MediaPlayer.create(this, R.raw.saw);
-
-                    mediaPlayer.start();
-                }
-            }
-
-        }
-
-    public void check_hammer_motion(float x, float y, float z){
-
-        if(x > MOVEMENT_THRESHOLD+6){
-            hammer_is_extended = true;
-            hammer_movement_changes++;
-        } else{
-            hammer_is_extended = false;
-        }
-
-        if(hammer_movement_changes > movement_changes_THRESHOLD+5) {
-            if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
-                mediaPlayer = MediaPlayer.create(this, R.raw.hammer);
-
-                mediaPlayer.start();
-            }
-            System.out.println("YOU ARE hammering");
-        }
 
     }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        // Release the MediaPlayer resources when the activity is destroyed
-        if (mediaPlayer != null) {
-            mediaPlayer.release();
-            mediaPlayer = null;
-        }
-    }
-
-
-
-}
