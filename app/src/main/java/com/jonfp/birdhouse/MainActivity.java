@@ -18,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Launch the new activity
 
-                Intent intent = new Intent(MainActivity.this, activity_accelerometer.class);
+                Intent intent = new Intent(MainActivity.this, SawingActivity.class);
                 startActivity(intent);
             }
         });

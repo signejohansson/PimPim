@@ -33,6 +33,10 @@ public class activity_accelerometer extends AppCompatActivity implements SensorE
 
         private MediaPlayer mediaPlayer;
 
+
+
+
+
         @Override
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
