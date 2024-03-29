@@ -55,6 +55,17 @@ public class SawingActivity extends AccelerometerActivity {
     }
 
     private void redirectToNewActivity() {
+        // Play sound effect for transitioning to the next activity
+        MediaPlayer nextActivitySound = MediaPlayer.create(this, R.raw.finished);
+        if (nextActivitySound != null) {
+            nextActivitySound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+                }
+            });
+            nextActivitySound.start();
+        }
         Intent intent = new Intent(this, ListeningActivity.class);
         startActivity(intent);
         finish(); // Finish current activity to prevent going back to it on back press
