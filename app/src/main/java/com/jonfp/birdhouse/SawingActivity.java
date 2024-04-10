@@ -33,13 +33,15 @@ public class SawingActivity extends AccelerometerActivity {
     @Override
     protected void handleMotion(float x, float y, float z) {
         // Sawing logic goes here
-        if(y > MOVEMENT_THRESHOLD){
+        // Y axis is the forward and backwards motion of the saw (phone must be horizontally oriented)
+        // X axis is checked to make sure the phone is horizontally oriented
+        if(y > MOVEMENT_THRESHOLD && x > MOVEMENT_THRESHOLD){
             saw_is_extended = true;
             saw_movement_changes++;
         } else{
             saw_is_extended = false;
         }
-        if(saw_movement_changes > movement_changes_THRESHOLD) {
+        if(saw_movement_changes > movement_changes_THRESHOLD +2) {
             System.out.println("YOU ARE SAWING");
             strokeCount++;
             textViewStatus.setText("Status: Sawing");
