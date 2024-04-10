@@ -12,7 +12,7 @@ public class SawingActivity extends AccelerometerActivity {
     private static final int MOVEMENT_THRESHOLD = 6;
     private static final int movement_changes_THRESHOLD = 1;
     private static final int STROKE_COUNT_THRESHOLD = 10;
-
+    private boolean redirecting = false;
     private TextView textViewStatus;
     private int strokeCount = 0;
 
@@ -41,7 +41,7 @@ public class SawingActivity extends AccelerometerActivity {
         } else{
             saw_is_extended = false;
         }
-        if(saw_movement_changes > movement_changes_THRESHOLD +2) {
+        if(saw_movement_changes > movement_changes_THRESHOLD) {
             System.out.println("YOU ARE SAWING");
             strokeCount++;
             textViewStatus.setText("Status: Sawing");
@@ -57,6 +57,11 @@ public class SawingActivity extends AccelerometerActivity {
     }
 
     private void redirectToNewActivity() {
+        System.out.println("redirect");
+        if(redirecting){
+            return;
+        }
+        redirecting = true;
         // Play sound effect for transitioning to the next activity
         MediaPlayer nextActivitySound = MediaPlayer.create(this, R.raw.finished);
         if (nextActivitySound != null) {
