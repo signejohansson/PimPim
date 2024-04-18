@@ -11,7 +11,7 @@ public class SawingActivity extends AccelerometerActivity {
     private int saw_movement_changes = 0;
     private static final int MOVEMENT_THRESHOLD = 6;
     private static final int movement_changes_THRESHOLD = 1;
-    private static final int STROKE_COUNT_THRESHOLD = 10;
+    private static final int STROKE_COUNT_THRESHOLD = 5;
     private boolean redirecting = false;
     private TextView textViewStatus;
     private int strokeCount = 0;
