@@ -28,7 +28,7 @@ public class HammeringActivity extends AccelerometerActivity {
         setContentView(R.layout.activity_sawing);
         textViewStatus = findViewById(R.id.textViewSawingStatus);
         textStatus = findViewById(R.id.textViewSawingInstructions);
-        textStatus.setText("Börja hammra!");
+        textStatus.setText("Börja hamra!");
 
 
     }
