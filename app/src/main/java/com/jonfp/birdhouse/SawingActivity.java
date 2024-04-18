@@ -35,7 +35,7 @@ public class SawingActivity extends AccelerometerActivity {
         // Sawing logic goes here
         // Y axis is the forward and backwards motion of the saw (phone must be horizontally oriented)
         // X axis is checked to make sure the phone is horizontally oriented
-        if(y > MOVEMENT_THRESHOLD && x > MOVEMENT_THRESHOLD){
+        if(y > MOVEMENT_THRESHOLD && Math.abs(x) > MOVEMENT_THRESHOLD){
             saw_is_extended = true;
             saw_movement_changes++;
         } else{
@@ -73,7 +73,7 @@ public class SawingActivity extends AccelerometerActivity {
             });
             nextActivitySound.start();
         }
-        Intent intent = new Intent(this, ListeningActivity.class);
+        Intent intent = new Intent(this, HammeringActivity.class);
         startActivity(intent);
         finish(); // Finish current activity to prevent going back to it on back press
     }

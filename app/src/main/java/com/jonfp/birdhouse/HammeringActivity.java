@@ -1,23 +1,30 @@
 package com.jonfp.birdhouse;
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 
 public class HammeringActivity extends AccelerometerActivity {
 
     private boolean hammer_is_extended = false;
     private int hammer_movement_changes = 0;
+
+    private boolean redirecting = false;
+    private int hammer_count = 0;
     private static final int MOVEMENT_THRESHOLD = 13; // Adjusted threshold for hammering
-    private static final int movement_changes_THRESHOLD = 10; // Adjusted threshold for hammering
+    private static final int movement_changes_THRESHOLD = 1; // Adjusted threshold for hammering
 
     @Override
     protected void setupMedia() {
-        mediaPlayer = MediaPlayer.create(this, R.raw.hammer);
+        mediaPlayer = MediaPlayer.create(this, R.raw.hammer_sound);
     }
 
     @Override
     protected void handleMotion(float x, float y, float z) {
         // Hammering logic goes here
-        if(x > MOVEMENT_THRESHOLD){
+
+        System.out.println(Math.abs(x));
+
+        if(Math.abs(x) > MOVEMENT_THRESHOLD){
             hammer_is_extended = true;
             hammer_movement_changes++;
         } else{
@@ -29,6 +36,33 @@ public class HammeringActivity extends AccelerometerActivity {
                 mediaPlayer.start();
             }
             System.out.println("YOU ARE hammering");
+            hammer_movement_changes = 0;
+            hammer_count++;
+            if (hammer_count >= 5) {
+                redirectToNewActivity();
+            }
         }
+    }
+
+    private void redirectToNewActivity() {
+        System.out.println("redirect");
+        if(redirecting){
+            return;
+        }
+        redirecting = true;
+        // Play sound effect for transitioning to the next activity
+        MediaPlayer nextActivitySound = MediaPlayer.create(this, R.raw.finished);
+        if (nextActivitySound != null) {
+            nextActivitySound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+                }
+            });
+            nextActivitySound.start();
+        }
+        Intent intent = new Intent(this, ListeningActivity.class);
+        startActivity(intent);
+        finish(); // Finish current activity to prevent going back to it on back press
     }
 }
