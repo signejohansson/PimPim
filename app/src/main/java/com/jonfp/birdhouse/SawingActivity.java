@@ -73,7 +73,8 @@ public class SawingActivity extends AccelerometerActivity {
             });
             nextActivitySound.start();
         }
-        Intent intent = new Intent(this, HammeringActivity.class);
+        Intent intent = new Intent(this, tool_selection.class);
+        intent.putExtra("tool", "hammer"); // variableValue is the value you want to send
         startActivity(intent);
         finish(); // Finish current activity to prevent going back to it on back press
     }

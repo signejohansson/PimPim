@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.PROXIMITY" />
 
@@ -16,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.birdhouse"
         tools:targetApi="31">
+        <activity
+            android:name=".tool_selection"
+            android:exported="false" />
         <activity
             android:name=".HammeringActivity"
             android:exported="false" />
