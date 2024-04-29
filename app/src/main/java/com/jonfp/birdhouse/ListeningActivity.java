@@ -9,6 +9,8 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.PowerManager;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +21,7 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
     private MediaPlayer mediaPlayer;
     private ImageView background;
     private final Handler handler = new Handler();
+    private Button start_over;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +35,9 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
         // Initialize media player
         mediaPlayer = MediaPlayer.create(this, R.raw.birdnoise);
         background = findViewById(R.id.imageView2);
+
+        start_over = findViewById(R.id.start_over);
+        start_over.setVisibility(View.GONE);
     }
 
     @Override
@@ -55,6 +61,7 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
             float distance = event.values[0];
             if (distance < proximitySensor.getMaximumRange()) {
                 // User is near the proximity sensor, play sound
+                start_over.setVisibility(View.VISIBLE);
                 playSound();
             }
         }
@@ -70,16 +77,15 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
             mediaPlayer.start();
             background.setImageResource(R.drawable.finished);
         }
-        handler.postDelayed(new Runnable() {
+        start_over.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                // Play sound effect for transitioning to the next activity
-
+            public void onClick(View v) {
                 Intent intent = new Intent(ListeningActivity.this, MainActivity.class);
                 startActivity(intent);
-                finish(); // Finish current activity to prevent going back to it on back press
+                finish();
             }
-        }, 3200);
+        });
+
     }
 
     @Override
