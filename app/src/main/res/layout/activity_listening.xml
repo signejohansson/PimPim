@@ -19,7 +19,6 @@
         android:id="@+id/start_over"
         android:layout_width="158dp"
         android:layout_height="70dp"
-        android:background="@color/white"
         app:backgroundTint="@color/white"
         android:text="Börja om!"
         app:layout_constraintBottom_toBottomOf="parent"
