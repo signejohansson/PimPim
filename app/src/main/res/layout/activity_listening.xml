@@ -17,18 +17,18 @@
 
     <Button
         android:id="@+id/start_over"
-        android:layout_width="158dp"
-        android:layout_height="70dp"
-        app:backgroundTint="@color/white"
+        android:layout_width="208dp"
+        android:layout_height="98dp"
         android:text="Börja om!"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:backgroundTint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.919"
-        android:textColor="@color/black"
-        />
+        app:layout_constraintVertical_bias="0.919" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
