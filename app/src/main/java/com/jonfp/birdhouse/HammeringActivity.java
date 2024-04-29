@@ -3,6 +3,7 @@ package com.jonfp.birdhouse;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class HammeringActivity extends AccelerometerActivity {
     private static final int MOVEMENT_THRESHOLD = 13; // Adjusted threshold for hammering
     private static final int movement_changes_THRESHOLD = 1; // Adjusted threshold for hammering
     private ImageView background;
+    private final Handler handler = new Handler();
     @Override
     protected void setupMedia() {
         mediaPlayer = MediaPlayer.create(this, R.raw.hammer_sound);
@@ -75,8 +77,19 @@ public class HammeringActivity extends AccelerometerActivity {
             });
             nextActivitySound.start();
         }
-        Intent intent = new Intent(this, ListeningActivity.class);
-        startActivity(intent);
-        finish(); // Finish current activity to prevent going back to it on back press
+        background.setImageResource(R.drawable.house);
+
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Play sound effect for transitioning to the next activity
+
+                Intent intent = new Intent(HammeringActivity.this, ListeningActivity.class);
+                startActivity(intent);
+                finish(); // Finish current activity to prevent going back to it on back press
+            }
+        }, 3200);
+
     }
 }

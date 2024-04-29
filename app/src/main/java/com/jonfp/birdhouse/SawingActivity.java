@@ -65,25 +65,26 @@ public class SawingActivity extends AccelerometerActivity {
         redirecting = true;
 
         background.setImageResource(R.drawable.planks);
-
+        MediaPlayer nextActivitySound = MediaPlayer.create(SawingActivity.this, R.raw.finished);
+        if (nextActivitySound != null) {
+            nextActivitySound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mp.release();
+                }
+            });
+            nextActivitySound.start();
+        }
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
                 // Play sound effect for transitioning to the next activity
-                MediaPlayer nextActivitySound = MediaPlayer.create(SawingActivity.this, R.raw.finished);
-                if (nextActivitySound != null) {
-                    nextActivitySound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                        @Override
-                        public void onCompletion(MediaPlayer mp) {
-                            mp.release();
-                        }
-                    });
-                    nextActivitySound.start();
-                }
+
                 Intent intent = new Intent(SawingActivity.this, tool_selection.class);
                 intent.putExtra("tool", "hammer"); // variableValue is the value you want to send
                 startActivity(intent);
                 finish(); // Finish current activity to prevent going back to it on back press
             }
-        }, 3200);    }
+        }, 3200);
+    }
 }
