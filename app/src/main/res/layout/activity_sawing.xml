@@ -19,7 +19,6 @@
         android:id="@+id/textViewSawingStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Status: Not Sawing"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
