@@ -7,13 +7,15 @@ import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.PowerManager;
+import android.widget.ImageView;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ListeningActivity extends AppCompatActivity implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor proximitySensor;
     private MediaPlayer mediaPlayer;
-
+    private ImageView background;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +27,7 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
 
         // Initialize media player
         mediaPlayer = MediaPlayer.create(this, R.raw.birdnoise);
+        background = findViewById(R.id.imageView2);
     }
 
     @Override
@@ -61,6 +64,7 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
     private void playSound() {
         if (!mediaPlayer.isPlaying()) {
             mediaPlayer.start();
+            background.setImageResource(R.drawable.finished);
         }
     }
 

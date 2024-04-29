@@ -3,6 +3,8 @@ package com.jonfp.birdhouse;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.Handler;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class SawingActivity extends AccelerometerActivity {
@@ -15,6 +17,8 @@ public class SawingActivity extends AccelerometerActivity {
     private boolean redirecting = false;
     private TextView textViewStatus;
     private int strokeCount = 0;
+    private ImageView background;
+    private final Handler handler = new Handler();
 
 
     @Override
@@ -22,6 +26,8 @@ public class SawingActivity extends AccelerometerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sawing);
         textViewStatus = findViewById(R.id.textViewSawingStatus);
+        background = findViewById(R.id.imageView);
+
     }
 
 
@@ -58,24 +64,31 @@ public class SawingActivity extends AccelerometerActivity {
 
     private void redirectToNewActivity() {
         System.out.println("redirect");
-        if(redirecting){
+        if (redirecting) {
             return;
         }
         redirecting = true;
-        // Play sound effect for transitioning to the next activity
-        MediaPlayer nextActivitySound = MediaPlayer.create(this, R.raw.finished);
-        if (nextActivitySound != null) {
-            nextActivitySound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-                @Override
-                public void onCompletion(MediaPlayer mp) {
-                    mp.release();
+
+        background.setImageResource(R.drawable.planks);
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Play sound effect for transitioning to the next activity
+                MediaPlayer nextActivitySound = MediaPlayer.create(SawingActivity.this, R.raw.finished);
+                if (nextActivitySound != null) {
+                    nextActivitySound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mp) {
+                            mp.release();
+                        }
+                    });
+                    nextActivitySound.start();
                 }
-            });
-            nextActivitySound.start();
-        }
-        Intent intent = new Intent(this, tool_selection.class);
-        intent.putExtra("tool", "hammer"); // variableValue is the value you want to send
-        startActivity(intent);
-        finish(); // Finish current activity to prevent going back to it on back press
-    }
+                Intent intent = new Intent(SawingActivity.this, tool_selection.class);
+                intent.putExtra("tool", "hammer"); // variableValue is the value you want to send
+                startActivity(intent);
+                finish(); // Finish current activity to prevent going back to it on back press
+            }
+        }, 3200);    }
 }
