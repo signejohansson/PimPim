@@ -15,7 +15,6 @@ public class SawingActivity extends AccelerometerActivity {
     private static final int movement_changes_THRESHOLD = 1;
     private static final int STROKE_COUNT_THRESHOLD = 5;
     private boolean redirecting = false;
-    private TextView textViewStatus;
     private int strokeCount = 0;
     private ImageView background;
     private final Handler handler = new Handler();
@@ -25,7 +24,6 @@ public class SawingActivity extends AccelerometerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sawing);
-        textViewStatus = findViewById(R.id.textViewSawingStatus);
         background = findViewById(R.id.imageView);
 
     }
@@ -48,9 +46,7 @@ public class SawingActivity extends AccelerometerActivity {
             saw_is_extended = false;
         }
         if(saw_movement_changes > movement_changes_THRESHOLD) {
-            System.out.println("YOU ARE SAWING");
             strokeCount++;
-            textViewStatus.setText("Status: Sawing");
             if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
                 mediaPlayer.start();
             }
@@ -58,7 +54,6 @@ public class SawingActivity extends AccelerometerActivity {
                 redirectToNewActivity();
             }
             saw_movement_changes = 0;
-            textViewStatus.setText("Status: Not Sawing");
         }
     }
 

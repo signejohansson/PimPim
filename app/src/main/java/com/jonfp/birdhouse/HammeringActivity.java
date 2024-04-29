@@ -15,7 +15,6 @@ public class HammeringActivity extends AccelerometerActivity {
     private int hammer_count = 0;
     private static final int MOVEMENT_THRESHOLD = 13; // Adjusted threshold for hammering
     private static final int movement_changes_THRESHOLD = 1; // Adjusted threshold for hammering
-    private TextView textViewStatus;
     private ImageView background;
     @Override
     protected void setupMedia() {
@@ -26,7 +25,6 @@ public class HammeringActivity extends AccelerometerActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sawing);
-        textViewStatus = findViewById(R.id.textViewSawingStatus);
             background = findViewById(R.id.imageView);
             background.setImageResource(R.drawable.hammer);
 
@@ -51,15 +49,11 @@ public class HammeringActivity extends AccelerometerActivity {
             if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
                 mediaPlayer.start();
             }
-            textViewStatus.setText("Status: Hammering");
-
-            System.out.println("YOU ARE hammering");
             hammer_movement_changes = 0;
             hammer_count++;
             if (hammer_count >= 8) {
                 redirectToNewActivity();
             }
-            textViewStatus.setText("Status: Not hammering");
 
         }
     }
