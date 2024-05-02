@@ -23,6 +23,15 @@ public class tool_selection extends AppCompatActivity {
 
         }
 
+        findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Launch the new activity
+
+                Intent intent = new Intent(tool_selection.this, CameraActivity.class);
+                startActivity(intent);
+            }
+        });
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

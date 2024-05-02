@@ -85,7 +85,7 @@ public class HammeringActivity extends AccelerometerActivity {
             public void run() {
                 // Play sound effect for transitioning to the next activity
 
-                Intent intent = new Intent(HammeringActivity.this, CameraActivity.class);
+                Intent intent = new Intent(HammeringActivity.this, tool_selection.class);
                 startActivity(intent);
                 finish(); // Finish current activity to prevent going back to it on back press
             }
