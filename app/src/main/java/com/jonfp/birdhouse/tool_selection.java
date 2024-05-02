@@ -20,8 +20,12 @@ public class tool_selection extends AppCompatActivity {
         if(tool != null && tool.equals("hammer")){
             textViewStatus = findViewById(R.id.instructionText);
             textViewStatus.setText("Klicka på hammaren");
-
         }
+        else if(tool != null && tool.equals("color")){
+            textViewStatus = findViewById(R.id.instructionText);
+            textViewStatus.setText("Klicka på färgburken");
+        }
+
 
         findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
             @Override
