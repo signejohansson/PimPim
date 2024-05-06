@@ -68,7 +68,7 @@ public class CameraActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 101);
         }
         background = findViewById(R.id.backgroundImage);
-        background.setImageResource(R.drawable.finished);
+        background.setImageResource(R.drawable.house2);
         background.setVisibility(View.INVISIBLE);
         backgroundColor.setVisibility(View.INVISIBLE);
         captureButton.setOnClickListener(v -> takePhoto());
@@ -180,8 +180,8 @@ public class CameraActivity extends AppCompatActivity {
             public void run() {
                 // Play sound effect for transitioning to the next activity
 
-                Intent intent = new Intent(CameraActivity.this, MainActivity.class);
-                intent.putExtra("tool", "hammer"); // variableValue is the value you want to send
+                Intent intent = new Intent(CameraActivity.this, ListeningActivity.class);
+                intent.putExtra("color", String.valueOf(color)); // variableValue is the value you want to send
                 startActivity(intent);
                 finish(); // Finish current activity to prevent going back to it on back press
             }

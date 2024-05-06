@@ -20,13 +20,17 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
     private Sensor proximitySensor;
     private MediaPlayer mediaPlayer;
     private ImageView background;
+    private ImageView backgroundColor;
     private final Handler handler = new Handler();
     private Button start_over;
-
+    private int color = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listening);
+
+        Intent intent = getIntent();
+        color = Integer.parseInt(intent.getStringExtra("color"));
 
         // Initialize sensor manager
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -38,6 +42,8 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
 
         start_over = findViewById(R.id.start_over);
         start_over.setVisibility(View.GONE);
+        backgroundColor = findViewById(R.id.backgroundColor);
+        backgroundColor.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -63,6 +69,8 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
                 // User is near the proximity sensor, play sound
                 start_over.setVisibility(View.VISIBLE);
                 playSound();
+                backgroundColor.setVisibility(View.VISIBLE);
+                backgroundColor.setBackgroundColor(color);
             }
         }
     }
