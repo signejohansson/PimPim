@@ -19,6 +19,8 @@
         android:id="@+id/start_camera"
         android:layout_width="118dp"
         android:layout_height="107dp"
+        android:background="@android:color/transparent"
+
         android:textColor="@color/black"
         android:textSize="30sp"
         app:backgroundTint="@color/white"

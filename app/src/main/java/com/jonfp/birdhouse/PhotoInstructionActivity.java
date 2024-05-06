@@ -15,7 +15,7 @@ public class PhotoInstructionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_photo_instruction);
 
         Button startCameraButton = findViewById(R.id.start_camera);
-        startCameraButton.setVisibility(View.INVISIBLE);
+        //startCameraButton.setVisibility(View.INVISIBLE);
 
         startCameraButton.setOnClickListener(new View.OnClickListener() {
             @Override

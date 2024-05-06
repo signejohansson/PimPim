@@ -57,6 +57,9 @@
             android:name=".ListeningActivity"
             android:exported="false" />
         <activity
+            android:name=".PhotoInstructionActivity"
+            android:exported="false" />
+        <activity
             android:name=".splash_screen"
             android:exported="true" >
             <intent-filter>

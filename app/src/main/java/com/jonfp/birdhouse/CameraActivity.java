@@ -1,11 +1,14 @@
 package com.jonfp.birdhouse;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.util.Size;
 import android.view.View;
@@ -42,6 +45,11 @@ public class CameraActivity extends AppCompatActivity {
     private PreviewView previewView;
     private TextView textViewColor;
     private ImageView capturedImageView;
+    Button captureButton;
+    private final Handler handler = new Handler();
+    private boolean redirecting = false;
+    private ImageView background;
+    private ImageView backgroundColor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,17 +59,20 @@ public class CameraActivity extends AppCompatActivity {
         previewView = findViewById(R.id.previewView);
         textViewColor = findViewById(R.id.textView_color);
         capturedImageView = findViewById(R.id.captured_image);
-        Button captureButton = findViewById(R.id.captureBtn);
-        Button resetButton = findViewById(R.id.resetBtn);
-
+        backgroundColor = findViewById(R.id.backgroundColor);
+        //Button resetButton = findViewById(R.id.resetBtn);
+        captureButton = findViewById(R.id.captureBtn);
         if (allPermissionsGranted()) {
             startCamera();
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 101);
         }
-
+        background = findViewById(R.id.backgroundImage);
+        background.setImageResource(R.drawable.finished);
+        background.setVisibility(View.INVISIBLE);
+        backgroundColor.setVisibility(View.INVISIBLE);
         captureButton.setOnClickListener(v -> takePhoto());
-        resetButton.setOnClickListener(v -> resetCamera());
+        //resetButton.setOnClickListener(v -> resetCamera());
     }
     private void resetCamera() {
         // Clear the previous image and text
@@ -143,12 +154,39 @@ public class CameraActivity extends AppCompatActivity {
                 textViewColor.setBackgroundColor(dominantColor);
                 Log.d("ColorInfo", "Chosen Color RGB: " + Integer.toHexString(dominantColor));
                 textViewColor.setText("Dominant Color: " + getColorName(dominantColor));
+                captureButton.setText("Continue");
+                captureButton.setOnClickListener(v -> redirect(dominantColor));
+
             } else {
                 textViewColor.setText("Dominant Color: Not found");
             }
         });
     }
 
+
+    public void redirect(int color){
+
+        if (redirecting) {
+            return;
+        }
+        redirecting = true;
+
+        background.setVisibility(View.VISIBLE);
+        backgroundColor.setVisibility(View.VISIBLE);
+        backgroundColor.setBackgroundColor(color); // Set any color you desire
+
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Play sound effect for transitioning to the next activity
+
+                Intent intent = new Intent(CameraActivity.this, MainActivity.class);
+                intent.putExtra("tool", "hammer"); // variableValue is the value you want to send
+                startActivity(intent);
+                finish(); // Finish current activity to prevent going back to it on back press
+            }
+        }, 3200);
+    }
 
     private String getColorName(int color) {
         float[] hsb = new float[3];

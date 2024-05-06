@@ -32,7 +32,7 @@ public class tool_selection extends AppCompatActivity {
             public void onClick(View v) {
                 // Launch the new activity
 
-                Intent intent = new Intent(tool_selection.this, CameraActivity.class);
+                Intent intent = new Intent(tool_selection.this, PhotoInstructionActivity.class);
                 startActivity(intent);
             }
         });
