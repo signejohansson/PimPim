@@ -46,6 +46,7 @@ public class CameraActivity extends AppCompatActivity {
     private TextView textViewColor;
     private ImageView capturedImageView;
     Button captureButton;
+    Button captureDoneButton; //ny knapp för att gå vidare efter bild
     private final Handler handler = new Handler();
     private boolean redirecting = false;
     private ImageView background;
@@ -62,6 +63,7 @@ public class CameraActivity extends AppCompatActivity {
         backgroundColor = findViewById(R.id.backgroundColor);
         //Button resetButton = findViewById(R.id.resetBtn);
         captureButton = findViewById(R.id.captureBtn);
+        captureDoneButton = findViewById(R.id.captureDoneBtn);
         if (allPermissionsGranted()) {
             startCamera();
         } else {
@@ -72,6 +74,7 @@ public class CameraActivity extends AppCompatActivity {
         background.setVisibility(View.INVISIBLE);
         backgroundColor.setVisibility(View.INVISIBLE);
         captureButton.setOnClickListener(v -> takePhoto());
+        captureDoneButton.setVisibility(View.INVISIBLE);
         //resetButton.setOnClickListener(v -> resetCamera());
     }
     private void resetCamera() {
@@ -154,8 +157,11 @@ public class CameraActivity extends AppCompatActivity {
                 textViewColor.setBackgroundColor(dominantColor);
                 Log.d("ColorInfo", "Chosen Color RGB: " + Integer.toHexString(dominantColor));
                 textViewColor.setText(getColorName(dominantColor));
-                captureButton.setText("Klar");
-                captureButton.setOnClickListener(v -> redirect(dominantColor));
+                //captureButton.setText("Klar");
+
+                captureButton.setVisibility(View.INVISIBLE);
+                captureDoneButton.setVisibility(View.VISIBLE);
+                captureDoneButton.setOnClickListener(v -> redirect(dominantColor));
 
             } else {
                 textViewColor.setText("Dominant Color: Not found");

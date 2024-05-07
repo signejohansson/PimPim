@@ -35,6 +35,13 @@
         android:layout_marginLeft="165dp"
         android:layout_marginTop="500dp"/>
 
+    <Button
+        android:id="@+id/captureDoneBtn"
+        android:layout_width="80dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="320dp"
+        android:layout_marginTop="640dp"/>
+
 
     <ImageView
         android:id="@+id/backgroundColor"
