@@ -153,8 +153,8 @@ public class CameraActivity extends AppCompatActivity {
                 int dominantColor = chosenSwatch.getRgb();
                 textViewColor.setBackgroundColor(dominantColor);
                 Log.d("ColorInfo", "Chosen Color RGB: " + Integer.toHexString(dominantColor));
-                textViewColor.setText("Dominant Color: " + getColorName(dominantColor));
-                captureButton.setText("Continue");
+                textViewColor.setText(getColorName(dominantColor));
+                captureButton.setText("Klar");
                 captureButton.setOnClickListener(v -> redirect(dominantColor));
 
             } else {

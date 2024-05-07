@@ -13,14 +13,14 @@
 
     <TextView
         android:id="@+id/textView_color"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:background="#FFFFFF"
-        android:text="Color will appear here"
+        android:text="Färg"
+        android:textSize="25dp"
         android:gravity="center"
         android:layout_alignParentBottom="true"
         android:textAppearance="?android:attr/textAppearanceLarge"/>
-
 
     <ImageView
         android:id="@+id/captured_image"
@@ -30,12 +30,10 @@
 
     <Button
         android:id="@+id/captureBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Capture"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp" />
+        android:layout_width="80dp"
+        android:layout_height="85dp"
+        android:layout_marginLeft="165dp"
+        android:layout_marginTop="500dp"/>
 
 
     <ImageView
