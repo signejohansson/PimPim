@@ -90,7 +90,7 @@ public class HammeringActivity extends AccelerometerActivity {
                 startActivity(intent);
                 finish(); // Finish current activity to prevent going back to it on back press
             }
-        }, 3200);
+        }, 1500);
 
     }
 }

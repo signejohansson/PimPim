@@ -185,7 +185,7 @@ public class CameraActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish(); // Finish current activity to prevent going back to it on back press
             }
-        }, 3200);
+        }, 1500);
     }
 
     private String getColorName(int color) {
