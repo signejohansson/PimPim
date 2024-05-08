@@ -21,7 +21,7 @@ Nice to have:
 [] Ny splash screen?
 
 Övrigt:
-[] Manus till film
+[KLAR] Manus till film
 [] Poster
 [] Test användarupplevelse
     [] A/B test för intstrukionsbilder
