@@ -42,7 +42,7 @@
         android:layout_alignParentBottom="true"
         android:contentDescription="Takes a picture"/>
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/captureDoneBtn"
         android:layout_width="80dp"
         android:layout_height="85dp"
