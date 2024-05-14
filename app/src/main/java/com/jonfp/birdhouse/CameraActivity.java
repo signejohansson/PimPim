@@ -123,10 +123,10 @@ public class CameraActivity extends AppCompatActivity {
             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                 Uri savedUri = outputFileResults.getSavedUri();
                 runOnUiThread(() -> {
-                    Toast.makeText(CameraActivity.this, "Photo Capture Succeeded: " + savedUri, Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(CameraActivity.this, "Photo Capture Succeeded: " + savedUri, Toast.LENGTH_SHORT).show();
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), savedUri);
-                        capturedImageView.setImageBitmap(bitmap);
+                        //capturedImageView.setImageBitmap(bitmap);
                         extractColor(bitmap);
                     } catch (IOException e) {
                         Toast.makeText(CameraActivity.this, "Failed to load the photo from storage.", Toast.LENGTH_SHORT).show();
@@ -159,7 +159,7 @@ public class CameraActivity extends AppCompatActivity {
                 textViewColor.setText(getColorName(dominantColor));
                 //captureButton.setText("Klar");
 
-                captureButton.setVisibility(View.INVISIBLE);
+                //captureButton.setVisibility(View.INVISIBLE);
                 captureDoneButton.setVisibility(View.VISIBLE);
                 captureDoneButton.setOnClickListener(v -> redirect(dominantColor));
 
