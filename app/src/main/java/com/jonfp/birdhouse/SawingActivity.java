@@ -11,7 +11,7 @@ public class SawingActivity extends AccelerometerActivity {
 
     private boolean saw_is_extended = false;
     private int saw_movement_changes = 0;
-    private static final int MOVEMENT_THRESHOLD = 6;
+    private static final int MOVEMENT_THRESHOLD = 5;
     private static final int movement_changes_THRESHOLD = 1;
     private static final int STROKE_COUNT_THRESHOLD = 5;
     private boolean redirecting = false;
@@ -40,25 +40,23 @@ public class SawingActivity extends AccelerometerActivity {
         // Y axis is the forward and backwards motion of the saw (phone must be horizontally oriented)
         // X axis is checked to make sure the phone is horizontally oriented
         if(y > MOVEMENT_THRESHOLD && Math.abs(x) > MOVEMENT_THRESHOLD){
-            saw_is_extended = true;
-            saw_movement_changes++;
-        } else{
-            saw_is_extended = false;
-        }
-        if(saw_movement_changes > movement_changes_THRESHOLD) {
+            if (mediaPlayer != null) {
+                if(mediaPlayer.isPlaying()){
+                    mediaPlayer.seekTo(0); // Seek to the beginning of the sound
+                    mediaPlayer.start(); // Start playing the sound again
+                }else {
+                    mediaPlayer.start();
+                }
+            }
             strokeCount++;
-            if (mediaPlayer != null && !mediaPlayer.isPlaying()) {
-                mediaPlayer.start();
-            }
-            if (strokeCount >= STROKE_COUNT_THRESHOLD) {
-                redirectToNewActivity();
-            }
-            saw_movement_changes = 0;
+        }
+
+        if (strokeCount >= STROKE_COUNT_THRESHOLD) {
+            redirectToNewActivity();
         }
     }
 
     private void redirectToNewActivity() {
-        System.out.println("redirect");
         if (redirecting) {
             return;
         }
