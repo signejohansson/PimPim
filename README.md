@@ -8,20 +8,18 @@ Muehehehehhehe
 
 **To do:**\
 Kod:
-
-[Moa] Ny bild för fotointruktion\
-[] Progress bar för såga och hamra\
-[Jacob] Ta bort tagen bild på cameraactivity (KLAR)\
+[Jacob] Färg-splash foto
+[KLAR] Ta bort tagen bild på cameraactivity (KLAR)\
 [] Bättre kvalite på bilderna\
-[Moa] Text från Android Studio istället för canva
+[] Font i appen
+[] Minska tid mellan färdiga plankor till hamring\
+[] Pilar för att klicka vidare
 
 Nice to have:\
 [] Feedback på tools om man klickar rätt/fel\
-[] Animationer för instruktion\
-[] Ny splash screen?
+[] Ny splash screen mer lik design?
 
 Övrigt:\
-[KLAR] Manus till film\
-[] Poster\
-[] Test användarupplevelse\
+[Moa] Poster\
+[KLAR?] Test användarupplevelse\
     [KLAR] A/B test för intstrukionsbilder
