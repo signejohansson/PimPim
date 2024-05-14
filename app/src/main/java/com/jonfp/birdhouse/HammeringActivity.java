@@ -28,9 +28,7 @@ public class HammeringActivity extends AccelerometerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sawing);
             background = findViewById(R.id.imageView);
-            background.setImageResource(R.drawable.hammer);
-
-
+            setContentView(R.layout.activity_hammering);
     }
 
 

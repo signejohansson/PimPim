@@ -25,9 +25,7 @@ public class SawingActivity extends AccelerometerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sawing);
         background = findViewById(R.id.imageView);
-
     }
-
 
     @Override
     protected void setupMedia() {
