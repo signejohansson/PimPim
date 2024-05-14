@@ -12,21 +12,8 @@
         android:layout_height="match_parent" >
 
 
-
     </androidx.camera.view.PreviewView>
 
-
-
-    <TextView
-        android:id="@+id/textView_color"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:background="#FFFFFF"
-        android:text="Färg"
-        android:textSize="25dp"
-        android:gravity="center"
-        android:layout_alignParentBottom="true"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
 
     <ImageView
         android:id="@+id/captured_image"
@@ -38,9 +25,13 @@
         android:id="@+id/captureBtn"
         android:layout_width="80dp"
         android:layout_height="85dp"
-        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:contentDescription="Takes a picture"/>
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FF0000"
+        android:contentDescription="Takes a picture"
+        android:textColorHighlight="#FF0000"
+        android:textColorLink="#FF0000" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/captureDoneBtn"
@@ -48,6 +39,8 @@
         android:layout_height="85dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
         android:background="@drawable/arrow_forward"
         android:contentDescription="Capture done, moves forward" />
 
@@ -63,6 +56,18 @@
         android:layout_height="match_parent"
         android:scaleType="centerCrop" />
 
+    <TextView
+        android:id="@+id/textView_color"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="#FFFFFF"
+        android:gravity="center"
+        android:text="Välj Färg"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textSize="25dp" />
 
 
 </RelativeLayout>

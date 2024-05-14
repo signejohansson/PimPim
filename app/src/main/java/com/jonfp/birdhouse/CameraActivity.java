@@ -156,7 +156,7 @@ public class CameraActivity extends AppCompatActivity {
                 int dominantColor = chosenSwatch.getRgb();
                 textViewColor.setBackgroundColor(dominantColor);
                 Log.d("ColorInfo", "Chosen Color RGB: " + Integer.toHexString(dominantColor));
-                textViewColor.setText(getColorName(dominantColor));
+                textViewColor.setText("Vald färg");
                 //captureButton.setText("Klar");
 
                 //captureButton.setVisibility(View.INVISIBLE);
@@ -164,7 +164,7 @@ public class CameraActivity extends AppCompatActivity {
                 captureDoneButton.setOnClickListener(v -> redirect(dominantColor));
 
             } else {
-                textViewColor.setText("Dominant Color: Not found");
+                textViewColor.setText("Hittade ingen färg");
             }
         });
     }
