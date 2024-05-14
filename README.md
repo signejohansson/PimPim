@@ -11,7 +11,8 @@ Kod:
 [Jacob] Färg-splash foto
 [KLAR] Ta bort tagen bild på cameraactivity (KLAR)\
 [] Bättre kvalite på bilderna\
-[] Font i appen
+[] Splash screen bakgrund (finns i drive)\
+[] Font i appen\
 [] Minska tid mellan färdiga plankor till hamring\
 [] Pilar för att klicka vidare
 
