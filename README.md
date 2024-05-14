@@ -24,4 +24,4 @@ Nice to have:\
 [KLAR] Manus till film\
 [] Poster\
 [] Test användarupplevelse\
-    [] A/B test för intstrukionsbilder
+    [KLAR] A/B test för intstrukionsbilder
