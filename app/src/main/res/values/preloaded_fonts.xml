@@ -2,7 +2,5 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/caveat_brush</item>
-        <item>@font/lilita_one</item>
-        <item>@font/open_sans_semibold</item>
     </array>
 </resources>
