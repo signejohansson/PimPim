@@ -11,7 +11,7 @@ Kod:
 
 [Moa] Ny bild för fotointruktion
 [] Progress bar för såga och hamra
-[] Ta bort tagen bild på cameraactivity
+[Jacob] Ta bort tagen bild på cameraactivity (KLAR)
 [] Bättre kvalite på bilderna
 [Moa] Text från Android Studio istället för canva
 
