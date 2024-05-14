@@ -2,26 +2,26 @@
 Project in MAMN01
 
 
-Muehehehehhehe
+Muehehehehhehe\
 
 
 
-**To do:**
-Kod:
+**To do:**\
+Kod:\
 
-[Moa] Ny bild för fotointruktion
-[] Progress bar för såga och hamra
-[Jacob] Ta bort tagen bild på cameraactivity (KLAR)
-[] Bättre kvalite på bilderna
-[Moa] Text från Android Studio istället för canva
+[Moa] Ny bild för fotointruktion\
+[] Progress bar för såga och hamra\
+[Jacob] Ta bort tagen bild på cameraactivity (KLAR)\
+[] Bättre kvalite på bilderna\
+[Moa] Text från Android Studio istället för canva\
 
-Nice to have:
-[] Feedback på tools om man klickar rätt/fel
-[] Animationer för instruktion
-[] Ny splash screen?
+Nice to have:\
+[] Feedback på tools om man klickar rätt/fel\
+[] Animationer för instruktion\
+[] Ny splash screen?\
 
-Övrigt:
-[KLAR] Manus till film
-[] Poster
-[] Test användarupplevelse
-    [] A/B test för intstrukionsbilder
+Övrigt:\
+[KLAR] Manus till film\
+[] Poster\
+[] Test användarupplevelse\
+    [] A/B test för intstrukionsbilder\
