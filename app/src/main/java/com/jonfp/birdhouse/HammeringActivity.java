@@ -5,7 +5,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 public class HammeringActivity extends AccelerometerActivity {
 
@@ -83,7 +82,7 @@ public class HammeringActivity extends AccelerometerActivity {
             public void run() {
                 // Play sound effect for transitioning to the next activity
 
-                Intent intent = new Intent(HammeringActivity.this, tool_selection.class);
+                Intent intent = new Intent(HammeringActivity.this, ToolSelection.class);
                 intent.putExtra("tool", "color");
                 startActivity(intent);
                 finish(); // Finish current activity to prevent going back to it on back press

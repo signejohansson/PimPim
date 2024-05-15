@@ -8,10 +8,9 @@ import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
 import android.view.View;
-import android.content.Intent;
 import android.widget.TextView;
 
-public class tool_selection extends AppCompatActivity {
+public class ToolSelection extends AppCompatActivity {
     private TextView textViewStatus;
     Vibrator vibrator;
     private void vibrate(){
@@ -47,7 +46,7 @@ public class tool_selection extends AppCompatActivity {
             public void onClick(View v) {
                 // Assume 'tool' is a String variable defined elsewhere in your code
                 if (tool != null && tool.equals("color")) {
-                    Intent intent = new Intent(tool_selection.this, SawingActivity.class);
+                    Intent intent = new Intent(ToolSelection.this, SawingActivity.class);
                     startActivity(intent);
                 } else {
                     // Vibrate the phone for 500 milliseconds
@@ -63,7 +62,7 @@ public class tool_selection extends AppCompatActivity {
 
 
                 if (tool != null && tool.equals("hammer")) {
-                    Intent intent = new Intent(tool_selection.this, HammeringActivity.class);
+                    Intent intent = new Intent(ToolSelection.this, HammeringActivity.class);
                     startActivity(intent);
                 } else {
                     // Vibrate the phone for 500 milliseconds
@@ -76,7 +75,7 @@ public class tool_selection extends AppCompatActivity {
             public void onClick(View v) {
                 // Launch the new activity
                 if (tool == null) {
-                    Intent intent = new Intent(tool_selection.this, SawingActivity.class);
+                    Intent intent = new Intent(ToolSelection.this, SawingActivity.class);
                     startActivity(intent);
                 } else {
                     // Vibrate the phone for 500 milliseconds

@@ -1,8 +1,6 @@
 
 package com.jonfp.birdhouse;
 
-import static androidx.core.content.ContextCompat.getSystemService;
-
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
@@ -10,13 +8,10 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.os.Vibrator;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-import android.media.MediaPlayer;
 
-public class activity_accelerometer extends AppCompatActivity implements SensorEventListener {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class ActivityAccelerometer extends AppCompatActivity implements SensorEventListener {
 
         private SensorManager sensorManager;
         private Sensor accelerometer;

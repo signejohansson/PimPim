@@ -9,7 +9,7 @@ import android.os.Bundle;
 
 import com.airbnb.lottie.LottieAnimationView;
 
-public class splash_screen extends AppCompatActivity {
+public class SplashScreen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class splash_screen extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 // Start your main activity or any other desired activity after animation ends
-                startActivity(new Intent(splash_screen.this, MainActivity.class));
+                startActivity(new Intent(SplashScreen.this, MainActivity.class));
                 finish(); // Finish the splash activity so it's not in the back stack
             }
         });
