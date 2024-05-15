@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // Launch the new activity
 
-                Intent intent = new Intent(MainActivity.this, ToolSelection.class);
+                Intent intent = new Intent(MainActivity.this, ToolSelectionActivity.class);
                 startActivity(intent);
             }
         });

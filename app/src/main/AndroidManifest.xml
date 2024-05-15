@@ -40,7 +40,7 @@
             android:name=".CameraActivity"
             android:exported="false" />
         <activity
-            android:name=".ToolSelection"
+            android:name=".ToolSelectionActivity"
             android:exported="false" />
         <activity
             android:name=".HammeringActivity"

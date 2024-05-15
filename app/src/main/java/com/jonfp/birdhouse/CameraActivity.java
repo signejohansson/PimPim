@@ -46,7 +46,7 @@ public class CameraActivity extends AppCompatActivity {
     private TextView textViewColor;
     private ImageView capturedImageView;
     Button captureButton;
-    Button captureDoneButton; //ny knapp för att gå vidare efter bild
+    Button captureDoneButton;
     private final Handler handler = new Handler();
     private boolean redirecting = false;
     private ImageView background;
@@ -61,7 +61,6 @@ public class CameraActivity extends AppCompatActivity {
         textViewColor = findViewById(R.id.textView_color);
         capturedImageView = findViewById(R.id.captured_image);
         backgroundColor = findViewById(R.id.backgroundColor);
-        //Button resetButton = findViewById(R.id.resetBtn);
         captureButton = findViewById(R.id.captureBtn);
         captureDoneButton = findViewById(R.id.captureDoneBtn);
         if (allPermissionsGranted()) {
@@ -70,12 +69,11 @@ public class CameraActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.CAMERA}, 101);
         }
         background = findViewById(R.id.backgroundImage);
-        background.setImageResource(R.drawable.house2);
+        background.setImageResource(R.drawable.house_painted);
         background.setVisibility(View.INVISIBLE);
         backgroundColor.setVisibility(View.INVISIBLE);
         captureButton.setOnClickListener(v -> takePhoto());
         captureDoneButton.setVisibility(View.INVISIBLE);
-        //resetButton.setOnClickListener(v -> resetCamera());
     }
     private void resetCamera() {
         // Clear the previous image and text
@@ -123,10 +121,9 @@ public class CameraActivity extends AppCompatActivity {
             public void onImageSaved(@NonNull ImageCapture.OutputFileResults outputFileResults) {
                 Uri savedUri = outputFileResults.getSavedUri();
                 runOnUiThread(() -> {
-                    //Toast.makeText(CameraActivity.this, "Photo Capture Succeeded: " + savedUri, Toast.LENGTH_SHORT).show();
+
                     try {
                         Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), savedUri);
-                        //capturedImageView.setImageBitmap(bitmap);
                         extractColor(bitmap);
                     } catch (IOException e) {
                         Toast.makeText(CameraActivity.this, "Failed to load the photo from storage.", Toast.LENGTH_SHORT).show();
@@ -157,9 +154,6 @@ public class CameraActivity extends AppCompatActivity {
                 textViewColor.setBackgroundColor(dominantColor);
                 Log.d("ColorInfo", "Chosen Color RGB: " + Integer.toHexString(dominantColor));
                 textViewColor.setText("Vald färg");
-                //captureButton.setText("Klar");
-
-                //captureButton.setVisibility(View.INVISIBLE);
                 captureDoneButton.setVisibility(View.VISIBLE);
                 captureDoneButton.setOnClickListener(v -> redirect(dominantColor));
 
@@ -220,7 +214,6 @@ public class CameraActivity extends AppCompatActivity {
         if (hue < 330) return "Magenta";
         return "Red"; // Red wraps around.
     }
-
 
 
     private boolean allPermissionsGranted() {

@@ -75,7 +75,7 @@ public class SawingActivity extends AccelerometerActivity {
             public void run() {
                 // Play sound effect for transitioning to the next activity
 
-                Intent intent = new Intent(SawingActivity.this, ToolSelection.class);
+                Intent intent = new Intent(SawingActivity.this, ToolSelectionActivity.class);
                 intent.putExtra("tool", "hammer"); // variableValue is the value you want to send
                 startActivity(intent);
                 finish(); // Finish current activity to prevent going back to it on back press
