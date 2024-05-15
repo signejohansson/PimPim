@@ -12,6 +12,7 @@ import android.os.PowerManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,7 +40,6 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
         // Initialize media player
         mediaPlayer = MediaPlayer.create(this, R.raw.birdnoise);
         background = findViewById(R.id.imageView2);
-
         start_over = findViewById(R.id.start_over);
         start_over.setVisibility(View.GONE);
         backgroundColor = findViewById(R.id.backgroundColor);
@@ -83,7 +83,7 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
     private void playSound() {
         if (!mediaPlayer.isPlaying()) {
             mediaPlayer.start();
-            background.setImageResource(R.drawable.finished);
+            setContentView(R.layout.activity_finished);
         }
         start_over.setOnClickListener(new View.OnClickListener() {
             @Override
