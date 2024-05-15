@@ -61,7 +61,7 @@ public class SawingActivity extends AccelerometerActivity {
             return;
         }
         redirecting = true;
-
+        mediaPlayer.stop();
         statusText.setText("");
         background.setImageResource(R.drawable.planks);
         MediaPlayer nextActivitySound = MediaPlayer.create(SawingActivity.this, R.raw.finished);
