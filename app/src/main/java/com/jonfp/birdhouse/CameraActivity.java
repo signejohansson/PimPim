@@ -150,6 +150,7 @@ public class CameraActivity extends AppCompatActivity {
             if (chosenSwatch != null) {
                 int dominantColor = chosenSwatch.getRgb();
                 textViewColor.setVisibility(View.VISIBLE);
+                textViewColor.setText("");
                 textViewColor.setBackgroundColor(dominantColor);
                 Log.d("ColorInfo", "Chosen Color RGB: " + Integer.toHexString(dominantColor));
                 captureDoneButton.setVisibility(View.VISIBLE);
