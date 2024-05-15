@@ -46,7 +46,7 @@ public class ToolSelection extends AppCompatActivity {
             public void onClick(View v) {
                 // Assume 'tool' is a String variable defined elsewhere in your code
                 if (tool != null && tool.equals("color")) {
-                    Intent intent = new Intent(ToolSelection.this, SawingActivity.class);
+                    Intent intent = new Intent(ToolSelection.this, CameraActivity.class);
                     startActivity(intent);
                 } else {
                     // Vibrate the phone for 500 milliseconds

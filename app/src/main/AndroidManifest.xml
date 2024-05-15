@@ -49,9 +49,6 @@
             android:name=".SawingActivity"
             android:exported="false" />
         <activity
-            android:name=".ActivityAccelerometer"
-            android:exported="false" />
-        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
