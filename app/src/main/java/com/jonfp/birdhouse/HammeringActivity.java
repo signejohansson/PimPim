@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class HammeringActivity extends AccelerometerActivity {
 
@@ -16,6 +17,8 @@ public class HammeringActivity extends AccelerometerActivity {
     private static final int MOVEMENT_THRESHOLD = 13; // Adjusted threshold for hammering
     private static final int movement_changes_THRESHOLD = 1; // Adjusted threshold for hammering
     private ImageView background;
+    private TextView statusText;
+
     private final Handler handler = new Handler();
     @Override
     protected void setupMedia() {
@@ -27,6 +30,8 @@ public class HammeringActivity extends AccelerometerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sawing);
             background = findViewById(R.id.imageView);
+            statusText = findViewById(R.id.textView3);
+
             setContentView(R.layout.activity_hammering);
     }
 
@@ -74,6 +79,8 @@ public class HammeringActivity extends AccelerometerActivity {
             });
             nextActivitySound.start();
         }
+        statusText.setText("");
+        
         background.setImageResource(R.drawable.house);
 
 

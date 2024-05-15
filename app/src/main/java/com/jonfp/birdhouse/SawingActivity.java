@@ -5,6 +5,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 public class SawingActivity extends AccelerometerActivity {
 
@@ -16,6 +17,7 @@ public class SawingActivity extends AccelerometerActivity {
     private boolean redirecting = false;
     private int strokeCount = 0;
     private ImageView background;
+    private TextView statusText;
     private final Handler handler = new Handler();
 
 
@@ -24,6 +26,7 @@ public class SawingActivity extends AccelerometerActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sawing);
         background = findViewById(R.id.imageView);
+        statusText = findViewById(R.id.textView3);
     }
 
     @Override
@@ -59,6 +62,7 @@ public class SawingActivity extends AccelerometerActivity {
         }
         redirecting = true;
 
+        statusText.setText("");
         background.setImageResource(R.drawable.planks);
         MediaPlayer nextActivitySound = MediaPlayer.create(SawingActivity.this, R.raw.finished);
         if (nextActivitySound != null) {
