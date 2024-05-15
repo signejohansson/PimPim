@@ -69,6 +69,7 @@ public class CameraActivity extends AppCompatActivity {
         background.setImageResource(R.drawable.house_painted);
         background.setVisibility(View.INVISIBLE);
         backgroundColor.setVisibility(View.INVISIBLE);
+        textViewColor.setVisibility(View.INVISIBLE);
         captureButton.setOnClickListener(v -> takePhoto());
         captureDoneButton.setVisibility(View.INVISIBLE);
     }
@@ -148,6 +149,7 @@ public class CameraActivity extends AppCompatActivity {
 
             if (chosenSwatch != null) {
                 int dominantColor = chosenSwatch.getRgb();
+                textViewColor.setVisibility(View.VISIBLE);
                 textViewColor.setBackgroundColor(dominantColor);
                 Log.d("ColorInfo", "Chosen Color RGB: " + Integer.toHexString(dominantColor));
                 textViewColor.setText("Vald färg");
