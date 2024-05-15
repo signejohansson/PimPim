@@ -38,16 +38,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        //Shortcut knapp till kameran och vidare!
-        findViewById(R.id.buttonCamera).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Launch the new activity
 
-                Intent intent2 = new Intent(MainActivity.this, CameraActivity.class);
-                startActivity(intent2);
-            }
-        });
 
     }
 }
