@@ -7,13 +7,13 @@ Muehehehehhehe
 
 
 **To do:**\
-Kod:
-[Jacob] Färg-splash foto
+Kod:\
+[KLAR] Färg-splash foto\
 [KLAR] Ta bort tagen bild på cameraactivity (KLAR)\
 [KLAR] Bättre kvalite på bilderna\
-[] Splash screen bakgrund (finns i drive)\
-[KLAR??] Font i appen\
-[] Minska tid mellan färdiga plankor till hamring\
+[KLAR] Splash screen bakgrund (finns i drive)\
+[KLAR] Font i appen\
+[KLAR] Minska tid mellan färdiga plankor till hamring\
 [KLAR] Pilar för att klicka vidare
 
 Nice to have:\
