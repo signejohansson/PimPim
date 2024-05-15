@@ -8,7 +8,7 @@ Muehehehehhehe
 
 **To do:**\
 Kod:\
-[KLAR] Färg-splash foto\
+[] Färg-splash foto\
 [KLAR] Ta bort tagen bild på cameraactivity (KLAR)\
 [KLAR] Bättre kvalite på bilderna\
 [KLAR] Splash screen bakgrund (finns i drive)\
@@ -18,7 +18,7 @@ Kod:\
 
 Nice to have:\
 [] Feedback på tools om man klickar rätt/fel\
-[] Ny splash screen mer lik design?
+[KLAR] Ny splash screen mer lik design?
 
 Övrigt:\
 [KLAR] Poster\
