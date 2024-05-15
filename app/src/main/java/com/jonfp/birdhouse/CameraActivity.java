@@ -152,7 +152,6 @@ public class CameraActivity extends AppCompatActivity {
                 textViewColor.setVisibility(View.VISIBLE);
                 textViewColor.setBackgroundColor(dominantColor);
                 Log.d("ColorInfo", "Chosen Color RGB: " + Integer.toHexString(dominantColor));
-                textViewColor.setText("Vald färg");
                 captureDoneButton.setVisibility(View.VISIBLE);
                 captureDoneButton.setOnClickListener(v -> redirect(dominantColor));
 
