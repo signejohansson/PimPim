@@ -28,19 +28,15 @@ public class HammeringActivity extends AccelerometerActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sawing);
+        setContentView(R.layout.activity_hammering);
             background = findViewById(R.id.imageView);
             statusText = findViewById(R.id.textView3);
-
-            setContentView(R.layout.activity_hammering);
     }
 
 
     @Override
     protected void handleMotion(float x, float y, float z) {
         // Hammering logic goes here
-
-        System.out.println(Math.abs(x));
 
         if(Math.abs(x) > MOVEMENT_THRESHOLD){
             hammer_is_extended = true;
@@ -69,6 +65,9 @@ public class HammeringActivity extends AccelerometerActivity {
         }
         redirecting = true;
         // Play sound effect for transitioning to the next activity
+        statusText.setText("");
+        background.setImageResource(R.drawable.house);
+        System.out.println("hammer done");
         MediaPlayer nextActivitySound = MediaPlayer.create(this, R.raw.finished);
         if (nextActivitySound != null) {
             nextActivitySound.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
@@ -79,9 +78,7 @@ public class HammeringActivity extends AccelerometerActivity {
             });
             nextActivitySound.start();
         }
-        statusText.setText("");
-        
-        background.setImageResource(R.drawable.house);
+
 
 
         handler.postDelayed(new Runnable() {
