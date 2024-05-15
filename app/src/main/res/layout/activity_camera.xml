@@ -49,17 +49,6 @@
         android:background="@drawable/arrow_forward"
         android:contentDescription="Capture done, moves forward" />
 
-    <ImageView
-        android:id="@+id/backgroundColor"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop" />
-
-    <ImageView
-        android:id="@+id/backgroundImage"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/textView_color"
@@ -73,4 +62,17 @@
         android:text="Välj Färg"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textSize="25dp" />
+
+    <ImageView
+        android:id="@+id/backgroundColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
 </RelativeLayout>
