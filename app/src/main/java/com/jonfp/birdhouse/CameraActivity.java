@@ -172,7 +172,7 @@ public class CameraActivity extends AppCompatActivity {
         background.setVisibility(View.VISIBLE);
         backgroundColor.setVisibility(View.VISIBLE);
         backgroundColor.setBackgroundColor(color); // Set any color you desire
-
+        captureDoneButton.setVisibility(View.INVISIBLE);
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
