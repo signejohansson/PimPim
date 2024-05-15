@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -21,7 +20,6 @@ import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.camera.core.Camera;
 import androidx.camera.core.CameraSelector;
 import androidx.camera.core.ImageCapture;
 import androidx.camera.core.ImageCaptureException;
@@ -33,7 +31,6 @@ import androidx.core.content.ContextCompat;
 import androidx.palette.graphics.Palette;
 
 import com.google.common.util.concurrent.ListenableFuture;
-import com.jonfp.birdhouse.R;
 
 import java.io.File;
 import java.io.IOException;
