@@ -12,8 +12,11 @@ import android.os.PowerManager;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class ListeningActivity extends AppCompatActivity implements SensorEventListener {
     private SensorManager sensorManager;
@@ -21,6 +24,8 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
     private MediaPlayer mediaPlayer;
     private ImageView background;
     private ImageView backgroundColor;
+
+    private TextView textView;
     private final Handler handler = new Handler();
     private Button start_over;
     private int color = 0;
@@ -39,7 +44,7 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
         // Initialize media player
         mediaPlayer = MediaPlayer.create(this, R.raw.birdnoise);
         background = findViewById(R.id.imageView2);
-
+        textView = findViewById(R.id.textView4);
         start_over = findViewById(R.id.start_over);
         start_over.setVisibility(View.GONE);
         backgroundColor = findViewById(R.id.backgroundColor);
@@ -84,6 +89,12 @@ public class ListeningActivity extends AppCompatActivity implements SensorEventL
         if (!mediaPlayer.isPlaying()) {
             mediaPlayer.start();
             background.setImageResource(R.drawable.finished);
+            textView.setTextSize(36);
+            textView.setText("Tack för mitt nya hem!");
+            ConstraintLayout.LayoutParams params = (ConstraintLayout.LayoutParams) textView.getLayoutParams();
+            params.setMargins(20, 180, 20, 30);
+            textView.setLayoutParams(params);
+
         }
         start_over.setOnClickListener(new View.OnClickListener() {
             @Override
